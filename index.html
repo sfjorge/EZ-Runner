@@ -27,7 +27,7 @@ function fiveRepeats(time, distance) {
     time /= (0.95);
     time = Math.round(time * 100)/100;
     var newResult = document.createElement("h5");
-    var node = document.createTextNode("5x" + distance + " repeats: hit " + time + "; rest time: 30 seconds");
+    var node = document.createTextNode("5x" + distance + " repeats: hit " + time);
     newResult.appendChild(node);
     var element = document.getElementById("resultsList");
     element.appendChild(newResult);
@@ -36,7 +36,7 @@ function tenRepeats(time, distance) {
     time /= (0.90);
     time = Math.round(time * 100)/100;
     var newResult = document.createElement("h5");
-    var node = document.createTextNode("10x" + distance + " repeats: hit " + time + "; rest time: 40 seconds");
+    var node = document.createTextNode("10x" + distance + " repeats: hit " + time);
     newResult.appendChild(node);
     var element = document.getElementById("resultsList");
     element.appendChild(newResult);
@@ -57,7 +57,7 @@ function descend321(btn) {
         three = Math.round(three * 100)/100;
         two = Math.round(two * 100)/100;
         one = Math.round(one * 100)/100;
-        typeResult("2x(300: "+three+", 200 "+two+", 100 "+one+" walk back rest) 3 minutes rest");
+        typeResult("2x(300: "+three+", 200: "+two+", 100: "+one+")");
     }
     else if (btn == 3) {
         var three = (pr400 * 3/4)/0.98;
@@ -66,7 +66,7 @@ function descend321(btn) {
         three = Math.round(three * 100)/100;
         two = Math.round(two * 100)/100;
         one = Math.round(one * 100)/100;
-        typeResult("3x(300: "+three+", 200 "+two+", 100 "+one+" walk back rest) 5 minutes rest");
+        typeResult("3x(300: "+three+", 200: "+two+", 100: "+one+")");
     }
     
 }
@@ -78,7 +78,7 @@ function descend432(btn) {
         four = Math.round(four * 100)/100;
         three = Math.round(three * 100)/100;
         two = Math.round(two * 100)/100;
-        typeResult("2x(400: "+four+", 300 "+three+", 200 "+two+" walk back rest) 5 minutes rest");
+        typeResult("2x(400: "+four+", 300: "+three+", 200: "+two+")");
     }
     else if (btn == 3) {
         var four = (pr400)/0.965;
@@ -87,7 +87,7 @@ function descend432(btn) {
         four = Math.round(four * 100)/100;
         three = Math.round(three * 100)/100;
         two = Math.round(two * 100)/100;
-        typeResult("3x(400: "+four+", 300 "+three+", 200 "+two+" walk back rest) 8 minutes rest");
+        typeResult("3x(400: "+four+", 300: "+three+", 200: "+two+")");
     }
 }
 function getWorkout() {
@@ -103,23 +103,15 @@ function getWorkout() {
 
     
     if (rep100 > 0) {
-        if (rep100 < 6) {
-            rest = 30;
-        }
-        else rest = 40;
         var time100 = pr100 / (1.0 - 0.01 * rep100);
         time100 = Math.round(time100 * 100)/100;
-        result = rep100 + "x100 repeats: hit " + time100 + "; rest time: "+ rest + " seconds"
+        result = rep100 + "x100 repeats: hit " + time100;
         typeResult(result);
     }
     if (rep150 > 0) {
-        if (rep150 < 6) {
-            rest = 30;
-        }
-        else rest = 40;
         var time150 = ((parseInt(pr100)+parseInt(pr200))/2) / (1.0 - 0.01 * rep100);
         time150 = Math.round(time150 * 100)/100;
-        result = rep150 + "x150 repeats: hit " + time150 + "; rest time: "+ rest + " seconds"
+        result = rep150 + "x150 repeats: hit " + time150;
         typeResult(result);
     }
     if (rep200 > 0) {
@@ -129,7 +121,7 @@ function getWorkout() {
         else rest = 40;
         var time200 = pr200 / (1.0 - 0.01 * rep200);
         time200 = Math.round(time200 * 100)/100;
-        result = rep200 + "x200 repeats: hit " + time200 + "; rest time: "+ rest + " seconds"
+        result = rep200 + "x200 repeats: hit " + time200;
         typeResult(result);
     }
     if (rep250 > 0) {
@@ -139,7 +131,7 @@ function getWorkout() {
         else rest = 40;
         var time250 = (pr200*5/4) / (1.0 - 0.01 * rep200);
         time250 = Math.round(time250 * 100)/100;
-        result = rep250 + "x250 repeats: hit " + time250 + "; rest time: "+ rest + " seconds"
+        result = rep250 + "x250 repeats: hit " + time250;
         typeResult(result);
     }
     if (rep300 > 0) {
@@ -149,7 +141,7 @@ function getWorkout() {
         else rest = 40;
         var time300 = ((parseInt(pr200) + parseInt(pr400))/2) / (1.0 - 0.01 * rep300);
         time300 = Math.round(time300 * 100)/100;
-        result = rep300 + "x300 repeats: hit " + time300 + "; rest time: "+ rest + " seconds"
+        result = rep300 + "x300 repeats: hit " + time300;
         typeResult(result);
     }
     if (rep350 > 0) {
@@ -159,7 +151,7 @@ function getWorkout() {
         else rest = 40;
         var time350 = (pr400 * 7 / 8) / (1.0 - 0.01 * rep350);
         time350 = Math.round(time350 * 100)/100;
-        result = rep350 + "x350 repeats: hit " + time350 + "; rest time: "+ rest + " seconds"
+        result = rep350 + "x350 repeats: hit " + time350;
         typeResult(result);
     }
     if (rep400 > 0) {
@@ -169,7 +161,7 @@ function getWorkout() {
         else rest = 40;
         var time400 = pr400 / (1.0 - 0.01 * rep400);
         time400 = Math.round(time400 * 100)/100;
-        result = rep400 + "x400 repeats: hit " + time400 + "; rest time: "+ rest + " seconds"
+        result = rep400 + "x400 repeats: hit " + time400;
         typeResult(result);
     }
     
@@ -234,7 +226,7 @@ function getWorkout() {
                     <h4>Repetitions:</h4>
                 </div>
                 <div class = "row">
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>100</h4>
                         <select id = "rep100" class = "form-control">
                             <option value = "0">0</option>
@@ -251,7 +243,7 @@ function getWorkout() {
                         </select>
                     </div>
                     
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>200</h4>
                         <select id = "rep200" class = "form-control">
                             <option value = "0">0</option>
@@ -268,7 +260,7 @@ function getWorkout() {
                         </select>
                     </div>
                     
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>300</h4>
                         <select id = "rep300" class = "form-control">
                             <option value = "0">0</option>
@@ -285,7 +277,7 @@ function getWorkout() {
                         </select>
                     </div>
                     
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>400</h4>
                         <select id = "rep400" class = "form-control">
                             <option value = "0">0</option>
@@ -301,9 +293,41 @@ function getWorkout() {
                             <option value = "10">10</option>
                         </select>
                     </div>
+					<div class = "container col-md-1">
+                        <h4>500</h4>
+                        <select id = "rep500" class = "form-control">
+                            <option value = "0">0</option>
+                            <option value = "1">1</option>
+                            <option value = "2">2</option>
+                            <option value = "3">3</option>
+                            <option value = "4">4</option>
+                            <option value = "5">5</option>
+                            <option value = "6">6</option>
+                            <option value = "7">7</option>
+                            <option value = "8">8</option>
+                            <option value = "9">9</option>
+                            <option value = "10">10</option>
+                        </select>
+                    </div>
+					<div class = "container col-md-1">
+                        <h4>600</h4>
+                        <select id = "rep600" class = "form-control">
+                            <option value = "0">0</option>
+                            <option value = "1">1</option>
+                            <option value = "2">2</option>
+                            <option value = "3">3</option>
+                            <option value = "4">4</option>
+                            <option value = "5">5</option>
+                            <option value = "6">6</option>
+                            <option value = "7">7</option>
+                            <option value = "8">8</option>
+                            <option value = "9">9</option>
+                            <option value = "10">10</option>
+                        </select>
+                    </div>
                 </div>
                 <div class = "row">
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>150</h4>
                         <select id = "rep150" class = "form-control">
                             <option value = "0">0</option>
@@ -319,7 +343,7 @@ function getWorkout() {
                             <option value = "10">10</option>
                         </select>
                     </div>
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>250</h4>
                         <select id = "rep250" class = "form-control">
                             <option value = "0">0</option>
@@ -335,9 +359,41 @@ function getWorkout() {
                             <option value = "10">10</option>
                         </select>
                     </div>
-                    <div class = "container col-md-2">
+                    <div class = "container col-md-1">
                         <h4>350</h4>
                         <select id = "rep350" class = "form-control">
+                            <option value = "0">0</option>
+                            <option value = "1">1</option>
+                            <option value = "2">2</option>
+                            <option value = "3">3</option>
+                            <option value = "4">4</option>
+                            <option value = "5">5</option>
+                            <option value = "6">6</option>
+                            <option value = "7">7</option>
+                            <option value = "8">8</option>
+                            <option value = "9">9</option>
+                            <option value = "10">10</option>
+                        </select>
+                    </div>
+					<div class = "container col-md-1">
+                        <h4>450</h4>
+                        <select id = "rep450" class = "form-control">
+                            <option value = "0">0</option>
+                            <option value = "1">1</option>
+                            <option value = "2">2</option>
+                            <option value = "3">3</option>
+                            <option value = "4">4</option>
+                            <option value = "5">5</option>
+                            <option value = "6">6</option>
+                            <option value = "7">7</option>
+                            <option value = "8">8</option>
+                            <option value = "9">9</option>
+                            <option value = "10">10</option>
+                        </select>
+                    </div>
+					<div class = "container col-md-1">
+                        <h4>550</h4>
+                        <select id = "rep550" class = "form-control">
                             <option value = "0">0</option>
                             <option value = "1">1</option>
                             <option value = "2">2</option>
